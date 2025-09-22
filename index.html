@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Proyek Digital</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Menggunakan font Inter sebagai default */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* bg-slate-50 */
+        }
+        /* Style untuk animasi fade-in saat scroll */
+        .project-card, .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .project-card.visible, .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header & Navigasi -->
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-slate-900">Portofolio Digital</h1>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#aplikasi" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Aplikasi & Dasbor</a>
+                <a href="#presentasi" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Presentasi Digital</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16 md:py-24">
+
+        <!-- Hero Section -->
+        <section class="grid md:grid-cols-2 gap-12 items-center mb-24 md:mb-32">
+            <div class="text-center md:text-left">
+                <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter text-slate-900 mb-4">Inovasi Digital untuk Sektor Publik</h2>
+                <p class="max-w-xl mx-auto md:mx-0 text-lg text-slate-600">
+                    Kumpulan proyek digital yang telah saya kembangkan, mencakup analisis kebijakan publik, pengembangan aplikasi web interaktif, dasbor data, hingga presentasi strategis.
+                </p>
+            </div>
+            <div class="flex justify-center">
+                <img src="Agung.jpg" alt="Foto profil Anda" class="rounded-full h-64 w-64 md:h-80 md:w-80 object-cover shadow-lg">
+            </div>
+        </section>
+        
+        <!-- Divider -->
+        <div class="w-full border-t border-slate-200 mb-24 md:mb-32"></div>
+
+        <!-- Section: Aplikasi Web & Dasbor Interaktif -->
+        <section id="aplikasi" class="mb-24 md:mb-32">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h3 class="text-4xl font-bold text-slate-900 mb-4">Aplikasi Web & Dasbor Interaktif</h3>
+                <p class="text-lg text-slate-600">Kumpulan aplikasi, dasbor, dan tools berbasis web yang dirancang untuk memecahkan masalah spesifik, mulai dari analisis data hingga otomatisasi proses.</p>
+            </div>
+            
+            <div class="flex flex-col gap-16 md:gap-24">
+                <!-- Project Cards for Applications will be injected here -->
+            </div>
+        </section>
+
+        <!-- Section: Presentasi Digital & Proyek Perubahan -->
+        <section id="presentasi">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h3 class="text-4xl font-bold text-slate-900 mb-4">Presentasi Digital & Proyek Perubahan</h3>
+                <p class="text-lg text-slate-600">Kumpulan presentasi strategis dan gagasan proyek perubahan yang disajikan dalam format digital interaktif, dirancang untuk advokasi kebijakan dan perencanaan program.</p>
+            </div>
+
+            <div class="flex flex-col gap-16 md:gap-24">
+                <!-- Project Cards for Presentations will be injected here -->
+            </div>
+        </section>
+
+        <!-- About Me / Contact Section -->
+        <section id="about" class="fade-in-section text-center py-24 mt-24">
+             <div class="w-full border-t border-slate-200 mb-24"></div>
+             <h3 class="text-3xl font-bold text-slate-900 mb-4">Tentang Saya</h3>
+             <p class="max-w-2xl mx-auto text-slate-600 mb-8">
+                Saya adalah seorang profesional yang bersemangat dalam menciptakan solusi digital inovatif untuk sektor publik. Dengan keahlian di bidang analisis kebijakan dan pengembangan web, saya berfokus pada proyek-proyek yang memberikan dampak positif bagi masyarakat. Mari terhubung!
+             </p>
+             <div class="flex justify-center gap-6">
+                <a href="https://www.facebook.com/agung.pitono.5" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 transition-colors">Facebook</a>
+                <a href="https://www.tiktok.com/@agung.pitono2" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 transition-colors">TikTok</a>
+                <a href="https://www.youtube.com/@mudah_diingat" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-blue-600 transition-colors">YouTube</a>
+             </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p>&copy; 2025 Portofolio Digital. Dibuat dengan passion dan inovasi.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data untuk semua proyek
+        const projects = {
+            applications: [
+                { title: "Chatbot RPJMD NTT 2025-2029", description: "Sebuah aplikasi chatbot interaktif yang dirancang untuk menjawab pertanyaan seputar dokumen Rencana Pembangunan Jangka Menengah Daerah (RPJMD) Provinsi NTT.", links: ["https://chatbot-rpjmd-ntt-2025-2029.vercel.app/"], image: "Gemini_Generated_Image_h16pvoh16pvoh16p.png" },
+                { title: "AI Document Assistant", description: "Aplikasi web berbasis AI yang berfungsi sebagai asisten dokumen. Pengguna dapat mengunggah file PDF dan mengajukan pertanyaan terkait isi dokumen untuk mendapatkan jawaban secara instan.", links: ["https://asisten-dokumen-aman-w9fl.vercel.app/"], image: "https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Dasbor Rencana Aksi Daerah (RAD) NTT", description: "Sebuah dasbor interaktif untuk pemantauan Rencana Aksi Daerah (RAD) Provinsi NTT, menampilkan data dan metrik kinerja terkait program-program strategis secara visual.", links: ["https://dasborradntt.vercel.app/"], image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Dasbor Data Dukcapil", description: "Sebuah dasbor interaktif yang menampilkan data statistik kependudukan dari Dinas Kependudukan dan Pencatatan Sipil (Dukcapil), seperti progres perekaman KTP-el.", links: ["https://dasbordukcapil.vercel.app/"], image: "Dasbor Data Dukcapil.png" },
+                { title: "Analisis Komparatif Regulasi RUMIJA", description: "Situs analitik yang membandingkan Peraturan Daerah terkait Ruang Milik Jalan (RUMIJA) di tiga kota besar, dilengkapi visualisasi data dan dokumen pendukung.", links: ["https://analisis-rumija.vercel.app/", "https://analisis-komparatif-regulasi-pemanf.vercel.app/"], image: "7.png" },
+                { title: "Simulasi Penilaian LGD", description: "Aplikasi web interaktif untuk melakukan Simulasi Penilaian Diskusi Kelompok (LGD), sebuah alat bantu untuk proses asesmen dan seleksi.", links: ["https://simulasi-penilaian-lgd.vercel.app/"], image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Visualisasi Flowchart Proses PUPR", description: "Sebuah halaman web yang menampilkan diagram alir (flowchart) interaktif untuk menjelaskan suatu proses atau alur kerja di lingkungan Kementerian PUPR.", links: ["https://flowchartpupr.vercel.app/"], image: "https://images.unsplash.com/photo-1529119368496-2dfda6ec2804?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Repositori Kode: Aplikasi Calon Sekda SBD", description: "Repositori publik di GitHub yang berisi kode sumber dan aset untuk halaman web presentasi calon Sekretaris Daerah Kabupaten Sumba Barat Daya.", links: ["https://calon-sekda-sbd.vercel.app/"], image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Modul Pembelajaran Interaktif", description: "Sebuah website yang berfungsi sebagai modul atau panduan pembelajaran interaktif untuk berbagai topik.", links: ["https://website-modul.vercel.app/"], image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDBfHx8fA%3D%3D" },
+                { title: "Demonstrasi Keamanan Web", description: "Sebuah halaman web yang membahas atau mendemonstrasikan konsep-konsep fundamental keamanan web.", links: ["https://webkeamanan.vercel.app/"], image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Dokumen Digital RPJMD NTT", description: "Sebuah website yang menyajikan dokumen Rencana Pembangunan Jangka Menengah Daerah (RPJMD) Provinsi NTT periode 2025-2029 dalam format digital dan interaktif.", links: ["https://rpjmdntt-2025-2029.vercel.app/"], image: "Dokumen Digital RPJMD NTT.png" }
+            ],
+            presentations: [
+                { title: "Proyek 'GEBER-NTT': Kemandirian Fiskal Infrastruktur", description: "Presentasi proyek perubahan untuk mencapai kemandirian fiskal infrastruktur di NTT melalui formulasi regulasi pemanfaatan aset jalan dan pembangunan ekosistem digital.", links: ["https://presentasi-pupr-10-9-2025.vercel.app/", "https://pupr-beige.vercel.app/"], image: "1.png" },
+                { title: "Proyek 'KEUDA KEREN': Transformasi Keuangan Daerah NTT", description: "Gagasan proyek perubahan untuk mentransformasi pengelolaan keuangan daerah di NTT dari fokus penyerapan anggaran menjadi penciptaan nilai melalui efisiensi dan transparansi.", links: ["https://presentasi-rancangan-kaban-keuda.vercel.app/", "https://keuda.vercel.app/"], image: "2.png" },
+                { title: "Proyek 'DUKCAPIL MENJANGKAU': Inovasi Layanan Adminduk", description: "Presentasi strategis untuk mengatasi tantangan geografis ('tirani jarak') di NTT dengan layanan administrasi kependudukan yang proaktif dan kolaboratif.", links: ["https://dukcapil-omega.vercel.app/", "https://presentasi-rancangan-kadis-dukcapil.vercel.app/"], image: "3.png" },
+                { title: "Gagasan Calon Sekda Sumba Barat Daya", description: "Presentasi strategis dari Yengo Tada Kawi, S.Pd., yang menguraikan visi 'Mewujudkan Birokrasi Adaptif' untuk akselerasi penurunan stunting dan kemiskinan ekstrem.", links: ["https://calon-sekda-sbd.vercel.app/"], image: "https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Proyek 'GERMASTA': Konservasi Mata Air NTT", description: "Presentasi proyek 'Gerakan Masyarakat Sadar Mata Air' untuk mengatasi kondisi kritis mata air di Provinsi NTT melalui model kolaborasi pentahelix.", links: ["https://presentasi-konservasi-air.vercel.app/"], image: "https://images.unsplash.com/photo-1476231682828-37e571bc172f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Strategi Konservasi Air Tanah Kab. Kupang", description: "Presentasi interaktif mengenai strategi konservasi air tanah di kawasan permukiman dan lahan kering, disajikan oleh Dinas Lingkungan Hidup Kabupaten Kupang.", links: ["https://presentasi-konservasi-air-versi-2.vercel.app/"], image: "4.png" },
+                { title: "Panduan Optimalisasi Aset Daerah (DAMIJA)", description: "Sebuah presentasi interaktif yang berfungsi sebagai panduan lengkap untuk optimalisasi aset Daerah Milik Jalan (Damija) di Provinsi NTT guna meningkatkan PAD.", links: ["https://pergubdamija.vercel.app/"], image: "5.png" },
+                { title: "Proyek 'SIMBINA': Manajemen Jasa Konstruksi", description: "Presentasi yang menguraikan proyek 'SIMBINA', sebuah inovasi untuk meningkatkan efektivitas pembinaan dan pengawasan jasa konstruksi di Provinsi NTT.", links: ["https://presentasi-simbina.vercel.app/"], image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+                { title: "Proyek 'Optimalisasi Aset'", description: "Presentasi proyek perubahan 'Optimalisasi Aset' oleh Drimianto, yang bertujuan meningkatkan Pendapatan Asli Daerah (PAD) melalui pemanfaatan aset daerah yang lebih efektif.", links: ["https://presentasi-drimianto.vercel.app/"], image: "6.png" }
+            ]
+        };
+
+        // Fungsi untuk membuat kartu proyek
+        function createProjectCard(project) {
+            const card = document.createElement('div');
+            card.className = 'project-card bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300';
+            
+            let linksHTML = project.links.map((link, index) => {
+                let buttonText = "Lihat Proyek";
+                if (project.links.length > 1) {
+                    buttonText = `Tautan ${index + 1}`;
+                }
+                if (link.includes("github.com")) {
+                    buttonText = "Lihat Kode di GitHub";
+                }
+
+                return `<a href="${link}" target="_blank" rel="noopener noreferrer" class="inline-block text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors">
+                            ${buttonText} &rarr;
+                        </a>`;
+            }).join('<span class="mx-2 text-slate-300">|</span>');
+
+            card.innerHTML = `
+                <div class="bg-slate-200">
+                     <img src="${project.image}" alt="Visual untuk proyek ${project.title}" class="w-full h-64 object-cover">
+                </div>
+                <div class="p-8">
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">${project.title}</h4>
+                    <p class="text-slate-600 text-base mb-6">${project.description}</p>
+                    <div class="flex flex-wrap gap-2 items-center">
+                        ${linksHTML}
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        // Memuat proyek ke dalam DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            const appContainer = document.querySelector('#aplikasi .flex.flex-col');
+            const presentationContainer = document.querySelector('#presentasi .flex.flex-col');
+
+            projects.applications.forEach(project => {
+                appContainer.appendChild(createProjectCard(project));
+            });
+
+            projects.presentations.forEach(project => {
+                presentationContainer.appendChild(createProjectCard(project));
+            });
+            
+            // Inisialisasi Intersection Observer untuk animasi
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.project-card, .fade-in-section').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+
