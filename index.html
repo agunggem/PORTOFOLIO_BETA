@@ -37,6 +37,7 @@
             <nav class="hidden md:flex space-x-8">
                 <a href="#aplikasi" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Aplikasi & Dasbor</a>
                 <a href="#presentasi" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Presentasi Digital</a>
+                <a href="#video" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Produksi Video</a>
             </nav>
         </div>
     </header>
@@ -73,7 +74,7 @@
         </section>
 
         <!-- Section: Presentasi Digital & Proyek Perubahan -->
-        <section id="presentasi">
+        <section id="presentasi" class="mb-24 md:mb-32">
             <div class="max-w-3xl mx-auto text-center mb-16">
                 <h3 class="text-4xl font-bold text-slate-900 mb-4">Presentasi Digital & Proyek Perubahan</h3>
                 <p class="text-lg text-slate-600">Kumpulan presentasi strategis dan gagasan proyek perubahan yang disajikan dalam format digital interaktif, dirancang untuk advokasi kebijakan dan perencanaan program.</p>
@@ -81,6 +82,18 @@
 
             <div class="flex flex-col gap-16 md:gap-24">
                 <!-- Project Cards for Presentations will be injected here -->
+            </div>
+        </section>
+        
+        <!-- Section: Produksi Video & Konten Digital -->
+        <section id="video" class="mb-24 md:mb-32">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h3 class="text-4xl font-bold text-slate-900 mb-4">Produksi Video & Konten Digital</h3>
+                <p class="text-lg text-slate-600">Kumpulan karya dalam format video yang membahas berbagai topik, mulai dari tutorial hingga analisis mendalam, yang dipublikasikan di platform seperti YouTube.</p>
+            </div>
+
+            <div class="flex flex-col gap-16 md:gap-24">
+                <!-- Project Cards for Videos will be injected here -->
             </div>
         </section>
 
@@ -133,6 +146,9 @@
                 { title: "Panduan Optimalisasi Aset Daerah (DAMIJA)", description: "Sebuah presentasi interaktif yang berfungsi sebagai panduan lengkap untuk optimalisasi aset Daerah Milik Jalan (Damija) di Provinsi NTT guna meningkatkan PAD.", links: ["https://pergubdamija.vercel.app/"], image: "5.png" },
                 { title: "Proyek 'SIMBINA': Manajemen Jasa Konstruksi", description: "Presentasi yang menguraikan proyek 'SIMBINA', sebuah inovasi untuk meningkatkan efektivitas pembinaan dan pengawasan jasa konstruksi di Provinsi NTT.", links: ["https://presentasi-simbina.vercel.app/"], image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
                 { title: "Proyek 'Optimalisasi Aset'", description: "Presentasi proyek perubahan 'Optimalisasi Aset' oleh Drimianto, yang bertujuan meningkatkan Pendapatan Asli Daerah (PAD) melalui pemanfaatan aset daerah yang lebih efektif.", links: ["https://presentasi-drimianto.vercel.app/"], image: "6.png" }
+            ],
+             videos: [
+                { title: "STRATEGI BARU PAD NTT! Komisi IV DPRD Sepakati Ranperda RUED & Utilitas.", description: "Komisi IV DPRD Provinsi NTT mengadakan Rapat penting bersama mitra kerja (Biro Hukum, Dinas PUPR, ESDM, Perhubungan, Bapperida) untuk membahas dan menyepakati Rancangan Peraturan Daerah (Ranperda) Usul Prakarsa Komisi yang akan didorong masuk dalam Program Pembentukan Peraturan Daerah (Propemperda) Tahun 2026.", links: ["https://youtu.be/9my0kQZeKMg"], image: "https://i.ytimg.com/vi/9my0kQZeKMg/hqdefault.jpg" }
             ]
         };
 
@@ -145,6 +161,9 @@
                 let buttonText = "Lihat Proyek";
                 if (project.links.length > 1) {
                     buttonText = `Tautan ${index + 1}`;
+                }
+                 if (link.includes("youtu.be")) {
+                    buttonText = "Tonton di YouTube";
                 }
                 if (link.includes("github.com")) {
                     buttonText = "Lihat Kode di GitHub";
@@ -174,6 +193,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const appContainer = document.querySelector('#aplikasi .flex.flex-col');
             const presentationContainer = document.querySelector('#presentasi .flex.flex-col');
+            const videoContainer = document.querySelector('#video .flex.flex-col');
 
             projects.applications.forEach(project => {
                 appContainer.appendChild(createProjectCard(project));
@@ -181,6 +201,10 @@
 
             projects.presentations.forEach(project => {
                 presentationContainer.appendChild(createProjectCard(project));
+            });
+            
+            projects.videos.forEach(project => {
+                videoContainer.appendChild(createProjectCard(project));
             });
             
             // Inisialisasi Intersection Observer untuk animasi
