@@ -38,6 +38,7 @@
                 <a href="#aplikasi" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Aplikasi & Dasbor</a>
                 <a href="#presentasi" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Presentasi Digital</a>
                 <a href="#video" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Produksi Video</a>
+                <a href="#analisis" class="text-slate-600 hover:text-blue-600 transition-colors font-medium">Analisis & Riset</a>
             </nav>
         </div>
     </header>
@@ -97,6 +98,19 @@
             </div>
         </section>
 
+        <!-- Section: Analisis & Riset Kebijakan -->
+        <section id="analisis" class="mb-24 md:mb-32">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h3 class="text-4xl font-bold text-slate-900 mb-4">Analisis & Riset Kebijakan</h3>
+                <p class="text-lg text-slate-600">Kumpulan dokumen analisis dan riset mendalam mengenai berbagai isu kebijakan publik dan prospek bisnis di sektor pemerintahan.</p>
+            </div>
+
+            <div class="flex flex-col gap-16 md:gap-24">
+                <!-- Project Cards for Analysis will be injected here -->
+            </div>
+        </section>
+
+
         <!-- About Me / Contact Section -->
         <section id="about" class="fade-in-section text-center py-24 mt-24">
              <div class="w-full border-t border-slate-200 mb-24"></div>
@@ -147,8 +161,11 @@
                 { title: "Proyek 'SIMBINA': Manajemen Jasa Konstruksi", description: "Presentasi yang menguraikan proyek 'SIMBINA', sebuah inovasi untuk meningkatkan efektivitas pembinaan dan pengawasan jasa konstruksi di Provinsi NTT.", links: ["https://presentasi-simbina.vercel.app/"], image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
                 { title: "Proyek 'Optimalisasi Aset'", description: "Presentasi proyek perubahan 'Optimalisasi Aset' oleh Drimianto, yang bertujuan meningkatkan Pendapatan Asli Daerah (PAD) melalui pemanfaatan aset daerah yang lebih efektif.", links: ["https://presentasi-drimianto.vercel.app/"], image: "6.png" }
             ],
-             videos: [
-                { title: "STRATEGI BARU PAD NTT! Komisi IV DPRD Sepakati Ranperda RUED & Utilitas.", description: "Komisi IV DPRD Provinsi NTT mengadakan Rapat penting bersama mitra kerja (Biro Hukum, Dinas PUPR, ESDM, Perhubungan, Bapperida) untuk membahas dan menyepakati Rancangan Peraturan Daerah (Ranperda) Usul Prakarsa Komisi yang akan didorong masuk dalam Program Pembentukan Peraturan Daerah (Propemperda) Tahun 2026.", links: ["https://youtu.be/9my0kQZeKMg"], image: "https://i.ytimg.com/vi/9my0kQZeKMg/hqdefault.jpg" }
+            videos: [
+                { title: "STRATEGI BARU PAD NTT! Komisi IV DPRD Sepakati Ranperda RUED & Utilitas.", description: "Komisi IV DPRD Provinsi NTT mengadakan Rapat penting bersama mitra kerja untuk membahas dan menyepakati Rancangan Peraturan Daerah (Ranperda) Usul Prakarsa Komisi yang akan didorong masuk dalam Program Pembentukan Peraturan Daerah (Propemperda) Tahun 2026.", links: ["https://youtu.be/9my0kQZeKMg"], image: "https://i.ytimg.com/vi/9my0kQZeKMg/hqdefault.jpg" }
+            ],
+            analysis: [
+                 { title: "Analisis Prospek Bisnis Jasa Konsultasi LAN", description: "Menelaah dokumen tentang Analisis Prospek Bisnis Jasa Konsultasi dan Pendampingan bagi Peserta Pelatihan Kepemimpinan LAN (PKA & PKN) di Indonesia.", links: ["Analisis_Bisnis_LAN.pdf"], image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
             ]
         };
 
@@ -167,6 +184,9 @@
                 }
                 if (link.includes("github.com")) {
                     buttonText = "Lihat Kode di GitHub";
+                }
+                 if (link.toLowerCase().endsWith(".pdf")) {
+                    buttonText = "Lihat Dokumen";
                 }
 
                 return `<a href="${link}" target="_blank" rel="noopener noreferrer" class="inline-block text-sm font-semibold text-blue-600 hover:text-blue-800 transition-colors">
@@ -194,6 +214,7 @@
             const appContainer = document.querySelector('#aplikasi .flex.flex-col');
             const presentationContainer = document.querySelector('#presentasi .flex.flex-col');
             const videoContainer = document.querySelector('#video .flex.flex-col');
+            const analysisContainer = document.querySelector('#analisis .flex.flex-col');
 
             projects.applications.forEach(project => {
                 appContainer.appendChild(createProjectCard(project));
@@ -205,6 +226,10 @@
             
             projects.videos.forEach(project => {
                 videoContainer.appendChild(createProjectCard(project));
+            });
+
+            projects.analysis.forEach(project => {
+                analysisContainer.appendChild(createProjectCard(project));
             });
             
             // Inisialisasi Intersection Observer untuk animasi
