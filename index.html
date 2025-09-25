@@ -134,6 +134,27 @@
         </div>
     </footer>
 
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="hidden fixed bottom-5 right-5 bg-white border border-slate-200 rounded-xl shadow-2xl p-5 max-w-sm w-full z-50">
+        <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center">
+                <svg class="h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+                </svg>
+            </div>
+            <div class="flex-1">
+                <h4 class="font-bold text-slate-800">Portofolio Diperbarui!</h4>
+                <p class="text-sm text-slate-600 mt-1">Ada proyek baru yang ditambahkan. Lihat sekarang untuk melihat karya terbaru saya.</p>
+            </div>
+            <button id="close-notification" class="text-slate-400 hover:text-slate-600 transition-colors">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
     <script>
         // Data untuk semua proyek
         const projects = {
@@ -165,7 +186,7 @@
                 { title: "STRATEGI BARU PAD NTT! Komisi IV DPRD Sepakati Ranperda RUED & Utilitas.", description: "Komisi IV DPRD Provinsi NTT mengadakan Rapat penting bersama mitra kerja untuk membahas dan menyepakati Rancangan Peraturan Daerah (Ranperda) Usul Prakarsa Komisi yang akan didorong masuk dalam Program Pembentukan Peraturan Daerah (Propemperda) Tahun 2026.", links: ["https://youtu.be/9my0kQZeKMg"], image: "https://i.ytimg.com/vi/9my0kQZeKMg/hqdefault.jpg" }
             ],
             analysis: [
-                 { title: "Analisis Prospek Bisnis Jasa Konsultasi LAN", description: "Menelaah dokumen tentang Analisis Prospek Bisnis Jasa Konsultasi dan Pendampingan bagi Peserta Pelatihan Kepemimpinan LAN (PKA & PKN) di Indonesia.", links: ["Prospek Bisnis Jasa Pelatihan Kepemimpinan LAN.pdf"], image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
+                 { title: "Analisis Prospek Bisnis Jasa Konsultasi LAN", description: "Menelaah dokumen tentang Analisis Prospek Bisnis Jasa Konsultasi dan Pendampingan bagi Peserta Pelatihan Kepemimpinan LAN (PKA & PKN) di Indonesia.", links: ["Prospek Bisnis Jasa Pelatihan Kepemimpinan LAN.pdf"], image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", isNew: true }
             ]
         };
 
@@ -199,7 +220,10 @@
                      <img src="${project.image}" alt="Visual untuk proyek ${project.title}" class="w-full h-64 object-cover">
                 </div>
                 <div class="p-8">
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">${project.title}</h4>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-3">
+                        ${project.title}
+                        ${project.isNew ? '<span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-1 rounded-full">BARU</span>' : ''}
+                    </h4>
                     <p class="text-slate-600 text-base mb-6">${project.description}</p>
                     <div class="flex flex-wrap gap-2 items-center">
                         ${linksHTML}
@@ -232,6 +256,29 @@
                 analysisContainer.appendChild(createProjectCard(project));
             });
             
+            // --- Logic Pemberitahuan ---
+            const notificationToast = document.getElementById('notification-toast');
+            const closeNotificationBtn = document.getElementById('close-notification');
+            
+            const notificationVersion = 'update_20250926'; 
+
+            const hasNewProject = Object.values(projects).flat().some(p => p.isNew);
+            
+            const isNotificationDismissed = localStorage.getItem('notificationDismissed') === notificationVersion;
+
+            if (hasNewProject && !isNotificationDismissed) {
+                setTimeout(() => {
+                    notificationToast.classList.remove('hidden');
+                    notificationToast.classList.add('flex');
+                }, 2000); // Tunda 2 detik
+            }
+
+            closeNotificationBtn.addEventListener('click', () => {
+                notificationToast.style.display = 'none';
+                localStorage.setItem('notificationDismissed', notificationVersion);
+            });
+
+
             // Inisialisasi Intersection Observer untuk animasi
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
